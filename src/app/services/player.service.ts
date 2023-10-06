@@ -129,14 +129,7 @@ export class PlayerService {
 			isWinner: false,
 			isLoser: false
 		});
-		const vika = createNewPlayer({
-			id: 7,
-			name: 'Viki',
-			imgLink: 'assets/viki.jpg',
-			lapsValues: [0, 0, 0, 0, 0, 0],
-			isWinner: false,
-			isLoser: false
-		});
+
 		const malina = createNewPlayer({
 			id: 8,
 			name: 'Malina',
@@ -185,7 +178,7 @@ export class PlayerService {
 			isWinner: false,
 			isLoser: false
 		});
-		this.defaultPlayers = [artem, daniil, boris, maxim, igor, yura, vika, malina, lisa, tanya, daniel, yurec, gera];
+		this.defaultPlayers = [artem, daniil, boris, maxim, igor, yura,  malina, lisa, tanya, daniel, yurec, gera];
 	}
 
 	public savePlayersToLocalStorage(): void {
