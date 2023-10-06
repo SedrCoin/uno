@@ -1,0 +1,29 @@
+import { Component, OnInit } from '@angular/core';
+import { PlayerModel } from 'src/app/models/player.model';
+import { PlayerService } from 'src/app/services/player.service';
+
+@Component({
+	selector: 'app-scheme',
+	templateUrl: './scheme.component.html',
+	styleUrls: ['./scheme.component.scss']
+})
+export class SchemeComponent implements OnInit {
+	public players: PlayerModel[] = [];
+
+
+	constructor(private playerService: PlayerService) {
+	}
+
+	public ngOnInit(): void {
+		this.playerService.savePlayersToLocalStorage();
+		this.playerService.getPlayersFromLocalStorage();
+		this.playerService.playersFlow$
+			.asObservable()
+			.subscribe((val: PlayerModel[]) => {
+				this.players = val;
+			});
+	}
+
+
+}
+

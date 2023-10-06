@@ -1,0 +1,42 @@
+
+    <div
+      class="wrapper card-appearing"
+
+    >
+
+      <button class="delete-icon " (click)="onClickRemove()"
+
+      >
+        <mat-icon color="black">delete_forever</mat-icon>
+      </button>
+
+       <div class="card"
+            [ngStyle]="{
+      backgroundColor: currentPlayer.isWinner
+        ? '#53a036'
+        : currentPlayer.isLoser
+        ? '#ee161f'
+        : '#F5E9E2'
+    }"
+       >
+
+           <div class="card-wrapper">
+             <p>{{ currentPlayer.name | uppercase }}</p>
+
+               <div class="card_img-background">
+                 <img [src]="currentPlayer.imgLink" alt="person"/>
+               </div>
+
+           </div>
+
+
+           <form class="card_inputs" [formGroup]="form">
+               <input 	formControlName="lap1" class="input_card" type="tel" placeholder="1 lap" maxlength="4">
+               <input 	formControlName="lap2" class="input_card" type="tel" placeholder="2 lap"  maxlength="4">
+               <input  	formControlName="lap3" class="input_card" type="tel" placeholder="3 lap"  maxlength="4">
+               <input  	formControlName="lap4" class="input_card" type="tel" placeholder="4 lap"  maxlength="4">
+               <input  	formControlName="lap5" class="input_card" type="tel" placeholder="5 lap"  maxlength="4">
+
+             <p class="card__score-value">SCORE: {{ currentPlayer.totalScore  }}
+           </form>
+       </div>
